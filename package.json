@@ -1,0 +1,41 @@
+{
+  "name": "panic-on-error",
+  "displayName": "Panic on Error",
+  "description": "Plays a funny meme sound when there's an error in your code",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onStartupFinished"],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "panic-on-error.toggle",
+        "title": "Panic on Error: Toggle Sound"
+      }
+    ],
+    "configuration": {
+      "title": "Panic on Error",
+      "properties": {
+        "panicOnError.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable panic sound on errors"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.80.0",
+    "typescript": "^5.0.0"
+  }
+}
